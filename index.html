@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>CorelDRAW 2020+ 快捷键查询</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27><rect width=%2732%27 height=%2732%27 rx=%274%27 fill=%27%232a2a2a%27/><text x=%2716%27 y=%2722%27 font-size=%2716%27 font-weight=%27bold%27 fill=%27%237B1FA2%27 text-anchor=%27middle%27>CD</text></svg>">
+<style>
+:root{--bg:#f5f5f7;--surface:#fff;--surface2:#f0f0f2;--border:#e0e0e4;--text:#1d1d1f;--text2:#8e8e93;--accent:#7B1FA2;--accent2:#5f1580;--accent-bg:rgba(123,31,162,.12);--radius:10px;--shadow:0 .5px 2px rgba(0,0,0,.06),0 1px 4px rgba(0,0,0,.04)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.header{background:linear-gradient(180deg,#1a0a24 0%,#2d1540 100%);padding:0 0 10px 0;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.2)}
+.header-top{display:flex;align-items:center;gap:8px;padding:10px 14px 8px}
+.header-top h1{font-size:16px;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px}
+.header-top h1 span{color:var(--accent)}
+.header-top .badge{font-size:10px;color:#98989d;background:rgba(255,255,255,.08);padding:1px 7px;border-radius:10px;margin-left:2px}
+.search-wrap{position:relative;margin:0 14px}
+.search-wrap .icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:#8e8e93;pointer-events:none}
+.search-bar{-webkit-appearance:none;appearance:none;width:100%;padding:9px 12px 9px 34px;border-radius:8px;border:1px solid #4a2a5e;background:#3a1a4e;color:#f5f5f7;font-size:15px;outline:none;transition:border .2s,background .2s}
+.search-bar::placeholder{color:#8e8e93;font-size:14px}
+.search-bar:focus{border-color:var(--accent);background:#2a1038}
+.tabs{display:flex;gap:5px;overflow-x:auto;padding:8px 14px 4px;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;background:var(--bg)}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:6px 13px;border-radius:16px;border:1px solid var(--border);background:var(--surface);font-size:12px;cursor:pointer;transition:all .2s;color:var(--text2);white-space:nowrap;-webkit-user-select:none;user-select:none;touch-action:manipulation}
+.tab:active{transform:scale(.95)}
+.tab.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.tab .cnt{font-size:10px;opacity:.65;margin-left:3px}
+.stats{font-size:12px;color:var(--text2);padding:8px 14px 6px;display:flex;justify-content:space-between;align-items:center}
+.grid{display:flex;flex-direction:column;gap:5px;padding:0 12px 60px}
+.item{display:flex;align-items:flex-start;gap:10px;background:var(--surface);border-radius:var(--radius);padding:10px 12px;border:1px solid var(--border);cursor:default;transition:border .15s,box-shadow .15s,transform .1s;touch-action:manipulation;animation:fadeIn .18s ease-out}
+.item:active{transform:scale(.98)}
+.keys{display:flex;gap:3px;flex-wrap:wrap;flex-shrink:0;max-width:140px}
+.key{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:26px;padding:0 6px;background:linear-gradient(180deg,#2c2c2e 0%,#1d1d1f 100%);color:#f5f5f7;border-radius:4px;font-size:11px;font-weight:700;font-family:"SF Mono",Menlo,monospace;border-bottom:1.5px solid #000;letter-spacing:-.2px}
+.key.accent{background:linear-gradient(180deg,var(--accent) 0%,#5a1578 100%);border-bottom-color:#3f0e56;color:#fff}
+.key.mod{font-size:9px;padding:0 4px;min-width:22px}
+.key.special{background:linear-gradient(180deg,#5a5a5e,#3a3a3c);border-bottom-color:#29292b;font-size:10px;min-width:22px}
+.desc{flex:1;min-width:0;font-size:13px;line-height:1.4}
+.detail{font-size:11px;color:var(--text2);margin-top:2px;line-height:1.3}
+.no-results{text-align:center;padding:60px 20px;color:var(--text2)}
+.no-results svg{width:40px;height:40px;margin-bottom:10px;opacity:.35}
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:rgba(245,245,247,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--border);z-index:200}
+.bottom-bar .info{font-size:11px;color:var(--text2)}
+.bottom-btn{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;border:none;background:var(--accent);color:#fff;font-size:12px;font-weight:600;cursor:pointer;touch-action:manipulation}
+.bottom-btn:active{opacity:.8}
+.bottom-btn svg{width:14px;height:14px}
+@media(prefers-color-scheme:dark){
+:root{--bg:#1c1c1e;--surface:#2c2c2e;--surface2:#3a3a3c;--border:#48484a;--text:#f5f5f7;--text2:#98989d;--accent-bg:rgba(123,31,162,.15);--shadow:0 .5px 2px rgba(0,0,0,.25),0 1px 4px rgba(0,0,0,.2)}
+.bottom-bar{background:rgba(28,28,30,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-top">
+    <h1><svg width="26" height="26" viewBox="0 0 32 32"><rect width="32" height="32" rx="5" fill="%237B1FA2"/><text x="8" y="21" font-size="12" font-weight="bold" fill="%23fff">CD</text></svg>CorelDRAW <span>2020+</span><span class="badge" id="totalBadge">0</span></h1>
+  </div>
+  <form class="search-wrap" id="searchForm" autocomplete="off">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+    <input class="search-bar" id="searchInput" type="search" placeholder="搜索快捷键…" enterkeyhint="search">
+  </form>
+</div>
+<div class="tabs" id="tabsContainer"></div>
+<div class="stats"><span id="resultCount">全部</span></div>
+<div class="grid" id="grid"></div>
+<div class="no-results" id="noResults" style="display:none">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+  <div style="font-size:15px;font-weight:600;margin-bottom:3px">没有匹配的快捷键</div>
+  <div style="font-size:13px">换个关键词试试</div>
+</div>
+<div class="bottom-bar">
+  <span class="info" id="bottomInfo">全部</span>
+  <button class="bottom-btn" id="scrollTopBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    顶部
+  </button>
+</div>
+<script>
+const D=[
+  // ── 文件操作 ──
+  {keys:["Ctrl","N"],desc:"新建文档",cat:"文件操作",detail:"创建新的空白文档"},
+  {keys:["Ctrl","O"],desc:"打开文件",cat:"文件操作",detail:"打开已有CorelDRAW文件"},
+  {keys:["Ctrl","S"],desc:"保存",cat:"文件操作",detail:"保存当前文档"},
+  {keys:["Ctrl","Shift","S"],desc:"另存为",cat:"文件操作",detail:"将文档另存为新文件"},
+  {keys:["Ctrl","P"],desc:"打印",cat:"文件操作",detail:"打印当前文档"},
+  {keys:["Ctrl","Shift","P"],desc:"打印预览",cat:"文件操作",detail:"预览打印效果"},
+  {keys:["Ctrl","E"],desc:"导出",cat:"文件操作",detail:"导出为其他格式"},
+  {keys:["Ctrl","I"],desc:"导入",cat:"文件操作",detail:"导入外部文件"},
+  {keys:["Ctrl","J"],desc:"选项设置",cat:"文件操作",detail:"打开选项配置对话框"},
+  {keys:["Ctrl","W"],desc:"关闭",cat:"文件操作",detail:"关闭当前文档"},
+  {keys:["Ctrl","Q"],desc:"退出",cat:"文件操作",detail:"退出CorelDRAW"},
+  {keys:["Ctrl","F4"],desc:"关闭文档",cat:"文件操作",detail:"关闭当前活动文档"},
+
+  // ── 编辑操作 ──
+  {keys:["Ctrl","Z"],desc:"撤销",cat:"编辑操作",detail:"撤销上一步操作"},
+  {keys:["Ctrl","Shift","Z"],desc:"重做",cat:"编辑操作",detail:"重做已撤销的操作"},
+  {keys:["Ctrl","X"],desc:"剪切",cat:"编辑操作",detail:"剪切选定对象"},
+  {keys:["Ctrl","C"],desc:"复制",cat:"编辑操作",detail:"复制选定对象"},
+  {keys:["Ctrl","V"],desc:"粘贴",cat:"编辑操作",detail:"粘贴剪贴板内容"},
+  {keys:["Ctrl","Shift","V"],desc:"选择性粘贴",cat:"编辑操作",detail:"选择格式进行粘贴"},
+  {keys:["Delete"],desc:"删除",cat:"编辑操作",detail:"删除选定对象"},
+  {keys:["Ctrl","D"],desc:"再制",cat:"编辑操作",detail:"Duplicate - 快速复制偏移"},
+  {keys:["Ctrl","R"],desc:"重复",cat:"编辑操作",detail:"Repeat - 重复上一步操作"},
+  {keys:["Ctrl","Shift","D"],desc:"步长与重复",cat:"编辑操作",detail:"设置步长和重复参数"},
+  {keys:["Ctrl","A"],desc:"全选",cat:"编辑操作",detail:"选择所有对象"},
+  {keys:["Ctrl","F"],desc:"查找",cat:"编辑操作",detail:"查找文本或对象"},
+  {keys:["Ctrl","Shift","F"],desc:"替换",cat:"编辑操作",detail:"替换文本或颜色"},
+
+  // ── 视图控制 ──
+  {keys:["F2"],desc:"缩放至选定",cat:"视图控制",detail:"将选定对象最大化显示"},
+  {keys:["F3"],desc:"缩小",cat:"视图控制",detail:"缩小视图比例"},
+  {keys:["F4"],desc:"显示全部对象",cat:"视图控制",detail:"所有对象适配窗口"},
+  {keys:["Shift","F4"],desc:"显示页面宽度",cat:"视图控制",detail:"按页面宽度缩放"},
+  {keys:["F9"],desc:"全屏预览",cat:"视图控制",detail:"全屏模式预览文档"},
+  {keys:["Shift","F9"],desc:"仅预览选定",cat:"视图控制",detail:"只预览选定的对象"},
+  {keys:["H"],desc:"平移工具",cat:"视图控制",detail:"Hand Tool - 平移视图"},
+  {keys:["Ctrl","+"],desc:"放大",cat:"视图控制",detail:"放大视图显示"},
+  {keys:["Ctrl","-"],desc:"缩小",cat:"视图控制",detail:"缩小视图显示"},
+  {keys:["Ctrl","1"],desc:"100%视图",cat:"视图控制",detail:"100%实际大小显示"},
+  {keys:["Ctrl","2"],desc:"200%视图",cat:"视图控制",detail:"200%放大显示"},
+  {keys:["Ctrl","Shift","W"],desc:"线框视图",cat:"视图控制",detail:"切换增强/线框视图模式"},
+  {keys:["Ctrl","Shift","T"],desc:"网格",cat:"视图控制",detail:"切换文档网格显示"},
+  {keys:["Ctrl","Shift","R"],desc:"标尺",cat:"视图控制",detail:"切换标尺显示"},
+  {keys:["Ctrl","Shift","G"],desc:"辅助线",cat:"视图控制",detail:"切换辅助线显示"},
+  {keys:["Ctrl","Enter"],desc:"缩放工具",cat:"视图控制",detail:"临时切换到缩放工具"},
+  {keys:["滚轮"],desc:"滚轮缩放",cat:"视图控制",detail:"滚动滚轮缩放视图",m:true},
+
+  // ── 选择操作 ──
+  {keys:["Space"],desc:"挑选工具",cat:"选择操作",detail:"Pick Tool - 切换选取工具"},
+  {keys:["Ctrl","Space"],desc:"切换选取",cat:"选择操作",detail:"临时切换到挑选工具"},
+  {keys:["Tab"],desc:"下一对象",cat:"选择操作",detail:"选择下一个对象"},
+  {keys:["Shift","Tab"],desc:"上一对象",cat:"选择操作",detail:"选择上一个对象"},
+  {keys:["Ctrl","A"],desc:"全选",cat:"选择操作",detail:"选择文档中所有对象"},
+  {keys:["Ctrl","Shift","A"],desc:"全选文本",cat:"选择操作",detail:"选择文档中所有文本对象"},
+  {keys:["Alt","拖拽"],desc:"套索选择",cat:"选择操作",detail:"拖拽框选轮廓模式下的对象",m:true},
+
+  // ── 绘制工具 ──
+  {keys:["F5"],desc:"手绘工具",cat:"绘制工具",detail:"Freehand - 自由绘制曲线"},
+  {keys:["F6"],desc:"矩形工具",cat:"绘制工具",detail:"Rectangle - 绘制矩形和正方形"},
+  {keys:["F7"],desc:"椭圆工具",cat:"绘制工具",detail:"Ellipse - 绘制椭圆和圆"},
+  {keys:["F8"],desc:"文本工具",cat:"绘制工具",detail:"Text - 创建文本"},
+  {keys:["Y"],desc:"艺术笔",cat:"绘制工具",detail:"Artistic Media - 笔刷/喷涂"},
+  {keys:["A"],desc:"贝塞尔工具",cat:"绘制工具",detail:"Bezier - 精确绘制曲线路径"},
+  {keys:["B"],desc:"标注工具",cat:"绘制工具",detail:"Dimension - 添加尺寸标注"},
+  {keys:["D"],desc:"智能绘图",cat:"绘制工具",detail:"Smart Drawing - 手绘转形状"},
+  {keys:["I"],desc:"交互式填充",cat:"绘制工具",detail:"Interactive Fill - 填充工具"},
+  {keys:["G"],desc:"交互式调和",cat:"绘制工具",detail:"Interactive Blend - 对象间调和"},
+  {keys:["L"],desc:"交互式轮廓图",cat:"绘制工具",detail:"Interactive Contour - 轮廓效果"},
+  {keys:["M"],desc:"交互式变形",cat:"绘制工具",detail:"Interactive Distortion - 变形"},
+  {keys:["X"],desc:"交互式封套",cat:"绘制工具",detail:"Interactive Envelope - 封套"},
+  {keys:["Z"],desc:"交互式立体化",cat:"绘制工具",detail:"Interactive Extrude - 立体效果"},
+  {keys:["Ctrl","F6"],desc:"多边形工具",cat:"绘制工具",detail:"Polygon - 绘制多边形"},
+  {keys:["Ctrl","F7"],desc:"螺旋线工具",cat:"绘制工具",detail:"Spiral - 绘制螺旋线"},
+  {keys:["Ctrl","F8"],desc:"图纸工具",cat:"绘制工具",detail:"Graph Paper - 绘制网格图纸"},
+
+  // ── 排列与组织 ──
+  {keys:["Ctrl","G"],desc:"群组",cat:"排列与组织",detail:"Group - 将选定对象编组"},
+  {keys:["Ctrl","U"],desc:"取消群组",cat:"排列与组织",detail:"Ungroup - 拆分群组"},
+  {keys:["Ctrl","Shift","G"],desc:"取消全部群组",cat:"排列与组织",detail:"完全拆散所有群组"},
+  {keys:["Ctrl","L"],desc:"合并",cat:"排列与组织",detail:"Combine - 合并为单一曲线"},
+  {keys:["Ctrl","K"],desc:"拆分",cat:"排列与组织",detail:"Break Apart - 拆分曲线"},
+  {keys:["Ctrl","Shift","L"],desc:"锁定对象",cat:"排列与组织",detail:"锁定对象防止编辑"},
+  {keys:["Ctrl","Shift","K"],desc:"解锁对象",cat:"排列与组织",detail:"解锁对象恢复编辑"},
+  {keys:["Ctrl","Shift","U"],desc:"全部解锁",cat:"排列与组织",detail:"解锁文档中所有对象"},
+  {keys:["Ctrl","PageUp"],desc:"向前一层",cat:"排列与组织",detail:"将对象上移一层"},
+  {keys:["Ctrl","PageDown"],desc:"向后一层",cat:"排列与组织",detail:"将对象下移一层"},
+  {keys:["Ctrl","Home"],desc:"到前面",cat:"排列与组织",detail:"将对象移到最顶层"},
+  {keys:["Ctrl","End"],desc:"到后面",cat:"排列与组织",detail:"将对象移到底层"},
+  {keys:["Ctrl","R"],desc:"对齐与分布",cat:"排列与组织",detail:"打开对齐与分布泊坞窗"},
+  {keys:["L"],desc:"左对齐",cat:"排列与组织",detail:"将选定对象左对齐"},
+  {keys:["R"],desc:"右对齐",cat:"排列与组织",detail:"将选定对象右对齐"},
+  {keys:["T"],desc:"上对齐",cat:"排列与组织",detail:"将选定对象顶部对齐"},
+  {keys:["B"],desc:"下对齐",cat:"排列与组织",detail:"将选定对象底部对齐"},
+  {keys:["C"],desc:"垂直居中",cat:"排列与组织",detail:"将选定对象垂直居中对齐"},
+  {keys:["E"],desc:"水平居中",cat:"排列与组织",detail:"将选定对象水平居中对齐"},
+  {keys:["Ctrl","Shift","A"],desc:"对齐到中心",cat:"排列与组织",detail:"对齐到页面中心"},
+
+  // ── 形状与对象 ──
+  {keys:["F10"],desc:"形状工具",cat:"形状与对象",detail:"Shape - 编辑节点和路径"},
+  {keys:["F12"],desc:"轮廓笔",cat:"形状与对象",detail:"Outline Pen - 设置轮廓属性"},
+  {keys:["Shift","F12"],desc:"轮廓色",cat:"形状与对象",detail:"设置轮廓颜色"},
+  {keys:["Ctrl","F12"],desc:"轮廓颜色",cat:"形状与对象",detail:"打开轮廓颜色对话框"},
+  {keys:["F11"],desc:"渐变填充",cat:"形状与对象",detail:"Fountain Fill - 渐变填充对话框"},
+  {keys:["Shift","F11"],desc:"均匀填充",cat:"形状与对象",detail:"Uniform Fill - 均匀填充对话框"},
+  {keys:["Ctrl","Q"],desc:"转换为曲线",cat:"形状与对象",detail:"Convert to Curves - 形状转曲线"},
+  {keys:["Ctrl","Shift","Q"],desc:"轮廓转对象",cat:"形状与对象",detail:"Convert Outline to Object"},
+  {keys:["Ctrl","Shift","C"],desc:"转换曲线",cat:"形状与对象",detail:"将文本或形状转换为曲线"},
+  {keys:["Ctrl","F"],desc:"填充泊坞窗",cat:"形状与对象",detail:"打开填充泊坞窗面板"},
+
+  // ── 文本操作 ──
+  {keys:["Ctrl","T"],desc:"格式化文本",cat:"文本操作",detail:"Format Text - 打开文本格式设置"},
+  {keys:["Ctrl","Shift","T"],desc:"编辑文本",cat:"文本操作",detail:"Edit Text - 编辑文本内容"},
+  {keys:["Ctrl","B"],desc:"粗体",cat:"文本操作",detail:"Bold - 切换粗体样式"},
+  {keys:["Ctrl","I"],desc:"斜体",cat:"文本操作",detail:"Italic - 切换斜体样式"},
+  {keys:["Ctrl","U"],desc:"下划线",cat:"文本操作",detail:"Underline - 切换下划线"},
+  {keys:["Ctrl","Shift",">"],desc:"增大字号",cat:"文本操作",detail:"增大选定文本字号"},
+  {keys:["Ctrl","Shift","<"],desc:"减小字号",cat:"文本操作",detail:"减小选定文本字号"},
+  {keys:["Ctrl","8"],desc:"小型大写",cat:"文本操作",detail:"切换小型大写字母"},
+  {keys:["Ctrl","Shift","K"],desc:"全部大写",cat:"文本操作",detail:"切换全部大写/小写"},
+  {keys:["Ctrl","Shift","S"],desc:"拼写检查",cat:"文本操作",detail:"Spell Check - 检查拼写"},
+  {keys:["Ctrl","Alt","T"],desc:"使文本适合路径",cat:"文本操作",detail:"Fit Text to Path"},
+  {keys:["Ctrl","Shift","N"],desc:"更改大小写",cat:"文本操作",detail:"Change Case - 切换大小写"},
+  {keys:["Ctrl","H"],desc:"文本属性泊坞窗",cat:"文本操作",detail:"打开文本属性面板"},
+
+  // ── 效果 ──
+  {keys:["Ctrl","B"],desc:"调和",cat:"效果",detail:"Blend - 对象间调和效果"},
+  {keys:["Ctrl","E"],desc:"封套",cat:"效果",detail:"Envelope - 封套变形效果"},
+  {keys:["Ctrl","Shift","E"],desc:"立体化",cat:"效果",detail:"Extrude - 三维立体效果"},
+  {keys:["Ctrl","Shift","P"],desc:"透视",cat:"效果",detail:"Perspective - 添加透视效果"},
+  {keys:["Ctrl","Shift","L"],desc:"透镜",cat:"效果",detail:"Lens - 透镜效果"},
+  {keys:["Ctrl","Shift","Q"],desc:"图框精确裁剪",cat:"效果",detail:"PowerClip - 内部裁剪"},
+  {keys:["Ctrl","Shift","T"],desc:"透明度",cat:"效果",detail:"Transparency - 透明效果"},
+  {keys:["Ctrl","Shift","D"],desc:"阴影",cat:"效果",detail:"Drop Shadow - 添加投影"},
+  {keys:["Ctrl","Shift","B"],desc:"轮廓图",cat:"效果",detail:"Contour - 轮廓图效果"},
+  {keys:["Ctrl","F9"],desc:"PowerClip内部",cat:"效果",detail:"置入PowerClip容器内部"},
+  {keys:["Ctrl","Shift","C"],desc:"清除效果",cat:"效果",detail:"清除选定对象的所有效果"},
+
+  // ── 窗口与面板 ──
+  {keys:["Ctrl","F2"],desc:"视图管理器",cat:"窗口与面板",detail:"打开视图管理器泊坞窗"},
+  {keys:["Ctrl","F3"],desc:"调色板浏览器",cat:"窗口与面板",detail:"打开调色板浏览器"},
+  {keys:["Ctrl","F5"],desc:"属性栏",cat:"窗口与面板",detail:"切换属性栏显示"},
+  {keys:["Ctrl","F6"],desc:"下一窗口",cat:"窗口与面板",detail:"切换到下一个文档窗口"},
+  {keys:["Ctrl","F7"],desc:"工具箱",cat:"窗口与面板",detail:"切换工具箱显示"},
+  {keys:["Ctrl","F8"],desc:"泊坞窗",cat:"窗口与面板",detail:"打开/切换泊坞窗"},
+  {keys:["Ctrl","F9"],desc:"变换泊坞窗",cat:"窗口与面板",detail:"打开变换泊坞窗"},
+  {keys:["Ctrl","F10"],desc:"状态栏",cat:"窗口与面板",detail:"切换状态栏显示"},
+  {keys:["Ctrl","F11"],desc:"符号管理器",cat:"窗口与面板",detail:"打开符号管理器"},
+  {keys:["Alt","F3"],desc:"透镜泊坞窗",cat:"窗口与面板",detail:"打开透镜效果面板"},
+  {keys:["Alt","F5"],desc:"颜色泊坞窗",cat:"窗口与面板",detail:"打开颜色面板"},
+  {keys:["Alt","F6"],desc:"对象管理器",cat:"窗口与面板",detail:"打开对象管理器"},
+  {keys:["Alt","F7"],desc:"变换泊坞窗",cat:"窗口与面板",detail:"打开位置变换面板"},
+  {keys:["Alt","F8"],desc:"图形与文本样式",cat:"窗口与面板",detail:"打开图形和文本样式面板"},
+  {keys:["Alt","F9"],desc:"符号管理器",cat:"窗口与面板",detail:"打开符号管理器"},
+  {keys:["Ctrl","Space"],desc:"快速搜索",cat:"窗口与面板",detail:"搜索功能和命令"},
+];
+let A="全部",Q="";
+const C=[...new Set(D.map(s=>s.cat))].sort((a,b)=>D.filter(x=>x.cat===b).length-D.filter(x=>x.cat===a).length);
+function rK(k,m){let c="key";if(k==="Ctrl"||k==="Shift"||k==="Alt")c+=" mod";else if(k==="Space"||k==="Tab"||k==="Home"||k==="End"||k==="Delete"||k==="Backspace"||k==="Enter"||k==="Escape")c+=" accent";else if(k.length>=2&&k[0]==="F")c+=" accent";else if(m)c+=" accent";return `<span class="${c}">${k}</span>`}
+function rI(s){return `<div class="item"><div class="keys">${s.keys.map(k=>rK(k,s.keys.length>1)).join("")}</div><div class="desc">${s.desc}<div class="detail">${s.detail||""}</div></div></div>`}
+function rA(){const g=document.getElementById("grid"),n=document.getElementById("noResults"),r=document.getElementById("resultCount"),b=document.getElementById("bottomInfo");let i=D;A!=="全部"&&(i=i.filter(s=>s.cat===A));if(Q.trim()){const q=Q.trim().toLowerCase();i=i.filter(s=>(s.desc+" "+s.keys.join(" ")+" "+(s.detail||"")).toLowerCase().includes(q))}g.innerHTML=i.map(rI).join("");n.style.display=i.length?"none":"block";const t=A==="全部"?`共 ${i.length} 条`:`${A} · ${i.length} 条`;r.textContent=t;b.textContent=t}
+function rT(){const c=document.getElementById("tabsContainer"),ac=D.length;let h=`<div class="tab${A==="全部"?" active":""}" data-cat="全部">全部<span class="cnt">${ac}</span></div>`;C.forEach(cat=>{const cnt=D.filter(s=>s.cat===cat).length;h+=`<div class="tab${A===cat?" active":""}" data-cat="${cat}">${cat}<span class="cnt">${cnt}</span></div>`});c.innerHTML=h;c.querySelectorAll(".tab").forEach(el=>{el.addEventListener("click",()=>{A=el.dataset.cat;rT();rA()})})}
+document.getElementById("totalBadge").textContent=D.length;
+const si=document.getElementById("searchInput");si.addEventListener("input",()=>{Q=si.value;rA()});document.getElementById("searchForm").addEventListener("submit",e=>e.preventDefault());
+document.getElementById("scrollTopBtn").addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+rT();rA();
+</script>
+</body>
+</html>
